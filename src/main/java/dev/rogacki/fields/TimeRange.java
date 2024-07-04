@@ -10,23 +10,8 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public interface TimeRange {
-
-    String getNameColumn();
     String value();
     int getMax();
-
-    default void printLine() {
-        System.out.println(getNameColumn() + getTimes());
-    }
-
-    default String fillUpToColumns(String name) {
-        int spacesToAdd = getDefaultColumnWidth() - name.length();
-        return name + " ".repeat(spacesToAdd);
-    }
-
-    private int getDefaultColumnWidth() {
-        return 14;
-    }
 
     default String getValues() {
         return value().replace(",", " ");
@@ -52,9 +37,13 @@ public interface TimeRange {
     }
 
     default String getAll() {
-        return IntStream.range(0, getMax())
+        return IntStream.range(getMin(), getMax())
             .mapToObj(Integer::toString)
             .collect(Collectors.joining(" "));
+    }
+
+    default int getMin() {
+        return 0;
     }
 
     default String getTimes() {
@@ -68,4 +57,5 @@ public interface TimeRange {
                 throw new IllegalStateException("Unexpected value: " + value());
         };
     }
+
 }

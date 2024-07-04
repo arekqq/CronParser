@@ -4,9 +4,9 @@ import dev.rogacki.fields.Command;
 import dev.rogacki.fields.DayOfMonth;
 import dev.rogacki.fields.DayOfWeek;
 import dev.rogacki.fields.Hour;
+import dev.rogacki.fields.LinePrinter;
 import dev.rogacki.fields.Minute;
 import dev.rogacki.fields.Month;
-import dev.rogacki.fields.TimeRange;
 
 import java.util.stream.Stream;
 
@@ -30,10 +30,10 @@ public record CronExpression(
     }
 
     public void printOutput() {
-        streamAllTimePrinters().forEach(TimeRange::printLine);
+        streamAllTimePrinters().forEach(LinePrinter::printLine);
     }
 
-    private Stream<TimeRange> streamAllTimePrinters() {
+    private Stream<LinePrinter> streamAllTimePrinters() {
         return Stream.of(minute, hour, dayOfMonth, month, dayOfWeek, command);
     }
 }

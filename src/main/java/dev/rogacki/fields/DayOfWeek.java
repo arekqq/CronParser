@@ -1,6 +1,6 @@
 package dev.rogacki.fields;
 
-public record DayOfWeek(String value) implements TimeRange {
+public record DayOfWeek(String value) implements TimeRange, LinePrinter {
 
     @Override
     public String getNameColumn() {
@@ -15,5 +15,10 @@ public record DayOfWeek(String value) implements TimeRange {
     @Override
     public String getTimes() {
         return "";
+    }
+
+    @Override
+    public String getValue() {
+        return getTimes();
     }
 }

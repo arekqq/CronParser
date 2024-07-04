@@ -1,6 +1,6 @@
 package dev.rogacki.fields;
 
-public record Minute(String value) implements TimeRange {
+public record Minute(String value) implements TimeRange, LinePrinter {
 
     private static final int MAX = 60;
 
@@ -12,6 +12,11 @@ public record Minute(String value) implements TimeRange {
     @Override
     public int getMax() {
         return MAX;
+    }
+
+    @Override
+    public String getValue() {
+        return getTimes();
     }
 
 }

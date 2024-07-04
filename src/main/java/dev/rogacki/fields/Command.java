@@ -1,6 +1,6 @@
 package dev.rogacki.fields;
 
-public record Command(String value) implements TimeRange {
+public record Command(String value) implements LinePrinter {
 
     @Override
     public String getNameColumn() {
@@ -8,12 +8,8 @@ public record Command(String value) implements TimeRange {
     }
 
     @Override
-    public int getMax() {
-        return 0;
+    public String getValue() {
+        return this.value;
     }
 
-    @Override
-    public String getTimes() {
-        return value;
-    }
 }

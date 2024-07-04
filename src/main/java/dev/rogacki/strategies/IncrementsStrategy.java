@@ -3,7 +3,7 @@ package dev.rogacki.strategies;
 import java.util.regex.Pattern;
 
 public class IncrementsStrategy implements CronExpressionStrategy {
-    private static final Pattern PATTERN = Pattern.compile("^\\*/\\d+$");
+    private static final Pattern PATTERN = Pattern.compile("\\b\\w+/\\w+\\b");
 
     @Override
     public boolean matches(String value) {
