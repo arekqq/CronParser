@@ -1,13 +1,13 @@
 package dev.rogacki;
 
-import java.util.Arrays;
-
 public class CronParser {
     public static void main(String[] args) {
-        if (args.length > 0) {
-            Arrays.stream(args).forEach(System.out::println);
+        if (args.length != 6) {
+            System.out.println("Wrong number of arguments - cron expression should consist of: " +
+                "<minute> <hour> <day-of-month> <month> <day-of-week> <command>");
         } else {
-            System.out.println("No arguments provided.");
+            CronExpression cronExpression = new CronExpression(args);
+            cronExpression.printOutput();
         }
     }
 }
