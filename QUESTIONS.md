@@ -10,6 +10,8 @@ It took me around 6h and I decided to finish on `minutes, hours, months` as it w
 handle all possible cron strings then an app which handles a subset of them correctly is
 better than one which does not run or produces incorrect results.
 
-But `dayOfMonth` would be very interesting case, because its maximum value depend on `month` value - probably I'd decide to handle it as single object to have access to both values for `getTimes()`
+But `dayOfMonth` is very interesting case, because its maximum value depend on `month` value - I'd decide to handle it as single object to have access to both values for `getTimes()`
+
+In case of extra time after implementing all cases my first "optimalization" would be a proper logger - this `System.out` was hurting my soul to write :D 
 
 Task description mention about running it as single command, but I think providing gradle wrapper is enough. If no I'd do it with `./gradlew distZip` and providing distribution of `jar` file with instruction.
