@@ -6,12 +6,12 @@ public class RangeStrategy implements CronExpressionStrategy {
     private static final Pattern PATTERN = Pattern.compile("\\b\\w+-\\w+\\b");
 
     @Override
-    public boolean matches(String value) {
-        return PATTERN.matcher(value).matches();
+    public ExpressionType getType() {
+        return ExpressionType.RANGE;
     }
 
     @Override
-    public ExpressionType getType() {
-        return ExpressionType.RANGE;
+    public Pattern getPattern() {
+        return PATTERN;
     }
 }

@@ -14,4 +14,9 @@ public class AnyStrategy implements CronExpressionStrategy {
     public ExpressionType getType() {
         return ExpressionType.ANY;
     }
+
+    @Override
+    public Pattern getPattern() {
+        return PATTERN;
+    }
 }
