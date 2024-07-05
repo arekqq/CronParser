@@ -14,7 +14,7 @@ public record DayOfWeek(String value) implements TimeRange, LinePrinter {
 
     @Override
     public String getTimes() {
-        return "";
+        return ""; // TODO
     }
 
     @Override
